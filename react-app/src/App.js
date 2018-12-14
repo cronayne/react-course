@@ -12,11 +12,11 @@ class App extends Component {
     otherperson: "Other Value"
   }
 
-  switchNameHandler = () => {
+  switchNameHandler = (newName) => {
     this.setState ({
       persons: [
-        { name: "William", age: 22},
-        { name: "Bob", age: 25},
+        { name: newName, age: 22},
+        { name: "Robert", age: 25},
         { name: "Bat", age: 47}
       ]
     })
@@ -26,10 +26,17 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Hi I'm a React App</h1>
-        <button onClick={this.switchNameHandler}>Switch Name</button>
-        <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
-        <Person name={this.state.persons[1].name} age={this.state.persons[1].age}>My Hobbies: Racing</Person>
-        <Person name={this.state.persons[2].name} age={this.state.persons[2].age} />
+        <button onClick={() => this.switchNameHandler('BillyBob')}>Switch Name</button>
+        <Person 
+          name={this.state.persons[0].name} 
+          age={this.state.persons[0].age}/>
+        <Person 
+          name={this.state.persons[1].name} 
+          age={this.state.persons[1].age}
+          click={this.switchNameHandler.bind(this, "Bill")}>My Hobbies: Racing</Person>
+        <Person 
+          name={this.state.persons[2].name} 
+          age={this.state.persons[2].age} />
       </div>      
     );
   }
