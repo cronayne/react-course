@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import appStyles from './App.css';
-import Person from "./Person/Person";
+import Person from "../components/Persons/Person/Person";
 
 class App extends Component {
   state = {
@@ -42,9 +42,7 @@ class App extends Component {
   }
 
   render() {
-
     let btnClass = '';
-
     let persons = null;
 
     if (this.state.showPersons) {
